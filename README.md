@@ -58,3 +58,6 @@ where
       console(obj);
     });
 
+### Note:
+
+Middleware is not necessary and individual actions can be registered using `loop.add(user_id, action_type)`
