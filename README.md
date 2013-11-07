@@ -2,28 +2,23 @@ simple Express middleware using Redis to provide feedback on user actions.
 
 ### prerequisite:
 
-You configured a session middleware which populates `req.user`
+You configured a session middleware which populates `req.user` (eg: passport.js)
 
 ### configuration:
 
-    var express = require('express'),
-      app = express();
+    var feedback = require('express-feedback')();
 
-    var feedback = require('express-feedback'),
-      loop = feedback();
-
-    // this should be after using your session middleware
-    app.use(feedback.middleware);
+    app.use(feedback.middleware); // this should be declared after your session middleware
 
 ### getting the feedback:
 
     // percentage of user hiting this url
-    loop.percUsing('/url/path', function(err, obj) {
+    feedback.loop.percUsing('/url/path', function(err, obj) {
       console(obj);
     });
 
     // average number of time the url is hit by a user
-    loop.averageUse('/url/path', function(err, obj) {
+    feedback.loop.averageUse('/url/path', function(err, obj) {
       console(obj);
     });
 
@@ -31,8 +26,7 @@ You configured a session middleware which populates `req.user`
 
 Pass options using:
 
-    var feedback = require('express-feedback'),
-      loop = feedback(options);
+    var feedback = require('express-feedback')(options);
 
 where
 
@@ -54,10 +48,10 @@ where
     options.prepend: 'alpha_';
 
     // when using prepend request info with:
-    loop.averageUse(<prepend value> + '/url/path', function(err, obj) {
+    feedback.loop.averageUse(<prepend value> + '/url/path', function(err, obj) {
       console(obj);
     });
 
 ### Note:
 
-Middleware is not necessary and individual actions can be registered using `loop.add(user_id, action_type)`
+Middleware is not necessary and individual actions can be registered using `feedback.loop.add(user_id, action_type)`

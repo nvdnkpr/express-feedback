@@ -2,8 +2,7 @@ var should = require('should');
 var http = require('http');
 var app = require('express')();
 
-var feedback = require('./../lib/feedback'),
-  loop = feedback();
+var feedback = require('./../lib/feedback')();
 
 
 describe('feedback.js', function() {
@@ -35,7 +34,7 @@ describe('feedback.js', function() {
   describe('#middleware', function() {
 
     it('should register the action', function(done) {
-      loop.list(function(err, obj) {
+      feedback.loop.list(function(err, obj) {
         obj.should.contain('/stand-to-pee');
         done();
       });
