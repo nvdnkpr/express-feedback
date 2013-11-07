@@ -41,17 +41,4 @@ describe('feedback.js', function() {
     });
   });
 
-    describe('#fullStats', function() {
-    it('should return an array with all actions and stats', function(done) {
-      feedback.loop.fullStats(function(err, obj) {
-        obj.should.eql([{
-          action: '/stand-to-pee',
-          percUsing: '100.00',
-          averageUse: '1.00'
-        }]);
-        done();
-      });
-    });
-  });
-
 });
