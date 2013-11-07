@@ -63,4 +63,25 @@ describe('loop.js', function() {
     });
   });
 
+  describe('#fullStats', function() {
+    it('should return an array with all actions and stats', function(done) {
+      loop.fullStats(function(err, obj) {
+        obj.should.eql([{
+          action: 'stand-to-pee',
+          percUsing: '33.33',
+          averageUse: '3.00'
+        }, {
+          action: 'sit-to-pee',
+          percUsing: '66.67',
+          averageUse: '1.50'
+        }, {
+          action: 'doesnt-pee',
+          percUsing: '33.33',
+          averageUse: '1.00'
+        }]);
+        done();
+      });
+    });
+  });
+
 });
