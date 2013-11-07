@@ -14,7 +14,7 @@ A session middleware which populates `req.user` is configured (eg: passport.js)
 
     app.use(feedback.middleware);
 
-note that it should be declared after the session middleware but before the router middleware too if you have one!
+note that it should be declared after the session middleware but before the router middleware if you have one!
 
 of course, as any middleware you can do something more specific:
 
