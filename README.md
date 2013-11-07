@@ -8,10 +8,23 @@ A session middleware which populates `req.user` is configured (eg: passport.js)
 
 ## configuration:
 
-**app.use([path], require('express-feedback')([options]).middleware)**
+    app.feedback = require('express-feedback')();
 
-    var feedback = require('express-feedback')();
-    app.use(feedback.middleware); // Note this should be declared after the session middleware
+## usage:
+
+    app.use(feedback.middleware);
+
+note that it should be declared after the session middleware but before the router middleware too if you have one!
+
+of course, as any middleware you can do something more specific:
+
+    app.use('/api', feedback.middleware);
+
+or even more specific:
+
+    app.get('/some-url', app.feedback.middleware, function(req, res) {
+        //do something
+    });
 
 
 ## getting the feedback:
