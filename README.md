@@ -17,15 +17,15 @@ You configured a session middleware which populates `req.user`
 
 ### getting the feedback:
 
-  // percentage of user hiting this url
-  loop.percUsing('/url/path', function(err, obj) {
-    console(obj);
-  });
+    // percentage of user hiting this url
+    loop.percUsing('/url/path', function(err, obj) {
+      console(obj);
+    });
 
-  // average number of time the url is hit by a user
-  loop.averageUse('/url/path', function(err, obj) {
-    console(obj);
-  });
+    // average number of time the url is hit by a user
+    loop.averageUse('/url/path', function(err, obj) {
+      console(obj);
+    });
 
 ### options:
 
